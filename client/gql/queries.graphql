@@ -1,0 +1,66 @@
+
+
+query AllPosts {
+  listPosts {
+    success
+    errors
+    post {
+      id
+      title
+      description
+      created_at
+    }
+  }
+}
+
+query GetPost($id: ID!) {
+  getPost(id: $id) {
+    post {
+      id
+      title
+      description
+    }
+    success
+    errors
+  }
+}
+
+mutation CreateNewPost($title:String!, $description:String!) {
+  createPost(
+    title: $title,
+    description:$description) {
+    post {
+      id
+      title
+      description
+      created_at
+    }
+    success
+    errors
+  }
+}
+
+
+mutation UpdatePost($id: ID!, $title:String!, $description:String!) {
+  updatePost(id:$id, title:$title, description:$description) {
+    post {
+      id
+      title
+      description
+    }
+    success
+    errors
+  }
+}
+
+mutation DeletePost($id: ID!) {
+  deletePost(id:$id) {
+    success
+    errors
+    post {
+      id
+      title
+      description
+    }
+  }
+}
